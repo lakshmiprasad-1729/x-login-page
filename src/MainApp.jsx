@@ -1,11 +1,28 @@
 import "./index.css";
 import App from "./App";
+import { useState } from "react";
 
 
 export default function MainApp (){
+  const [value,setValue]=useState("hidden");
+  const [background,setbackground]=useState("bg-black pointer-events-auto	")
+// let appClass="md:col-start-2 md:col-end-4 ";
+// let classer="hidden";
+  function AppDisplay(){
+   if(value==="hidden"){
+    setValue("inline")
+    setbackground("bg-gray-500 	");
+   }
+   else{
+    setValue("hidden");
+    setbackground("bg-black pointer-events-auto	");
+
+   }
+  }
      return(
-        <div className="bg-black w-[100dvw] h-[46rem] lg:flex ">
-             <div className=" h-[4rem] ml-[7dvw] md:ml-[21dvw] lg:ml-[5dvw] lg:max-w-[40dvw] lg:h-[45rem] lg:flex lg:items-center ">
+          <div className={"md:grid  md:grid-cols-4 md:grid-rows-1 "+background}>
+             <div className=" w-[100dvw] h-[46rem] lg:flex ">
+          <div className=" h-[4rem] ml-[7dvw] md:ml-[21dvw] lg:ml-[5dvw] lg:max-w-[40dvw] lg:h-[45rem] lg:flex lg:items-center ">
                <img 
                className="w-[5rem] h-[5rem] lg:hidden"
                src="https://static.dezeen.com/uploads/2023/07/x-logo-twitter-elon-musk_dezeen_2364_col_0-300x300.jpg" alt="image loading" />
@@ -39,7 +56,7 @@ export default function MainApp (){
                         <div className="w-[18rem] h-[1px] bg-neutral-700"></div>
                     </div>
                     <button 
-                    // onClick={createAccount}
+                    onClick={AppDisplay}
                     className="w-[18rem] h-[2.5rem] text-white  bg-blue-500 rounded-3xl font-bold text-[1.1rem] flex justify-center items-center" >
                      <span>Create account</span>
                     </button>
@@ -55,7 +72,11 @@ export default function MainApp (){
                       </button>
                   </div>
           </div>
-          {/* <App/> */}
+
+              </div>
+              <div className={"md:col-start-2 md:col-end-4  "+value}>
+              <App Back={AppDisplay}/>
+              </div>
         </div>
      )
 }

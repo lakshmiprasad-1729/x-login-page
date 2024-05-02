@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./index.css";
 
-export default function App() {
+export default function App({Back}) {
   const [input,setinput]=useState("  Mobile Number");
   const [email,setEmail]=useState("Email");
   function ModeOfCommunication(){
@@ -18,7 +18,8 @@ export default function App() {
   
   const months=["January","February","March","April","May","June","July","August","September","october","November","December"];
   return (
-    <div className="max-w-[42.5rem] h-[100dvh] bg-black md:max-w-[35rem] md:h-[90dvh] md:m-auto md:mt-[2.5rem] md:rounded-xl ">
+    <div className="max-w-[42.5rem] h-[100dvh] bg-black md:max-w-[35rem] md:h-[93dvh] md:m-auto md:mt-[2.5rem] md:rounded-xl ">
+      <button onClick={Back} className="w-[2rem] h-[2rem] rounded-xl text-white hover:bg-neutral-800">x</button>
       <div className="w-[100%] h-[4rem]  flex justify-center items-center">
         <img 
         className="w-[3rem] h-[3rem]"
@@ -63,7 +64,7 @@ export default function App() {
       <div className="flex justify-center">
         {/* submit button */}
         <button        
-        className="outline-none  bg-blue-500  min-w-[15rem]  h-[3.2rem] mx-[3rem] my-[0.5rem] rounded-3xl required:*: absolute bottom-0 md:bottom-[2.5rem] ">
+        className="outline-none  bg-blue-500  min-w-[15rem]  h-[3.2rem] mx-[3rem] my-[0.5rem] rounded-3xl required:*: mt-[4.5rem] md:mt-[3rem]">
         <span className="text-neutral-200">Sign Up</span>
         </button>
       </div>
